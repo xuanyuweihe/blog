@@ -103,6 +103,59 @@
 
 
   
+    <article id="post-vscode使用java8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2021/09/16/vscode%E4%BD%BF%E7%94%A8java8/" class="article-date">
+  <time datetime="2021-09-16T06:22:58.000Z" itemprop="datePublished">2021-09-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2021/09/16/vscode%E4%BD%BF%E7%94%A8java8/">vscode使用java8</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作者：Yaojin Yang</p>
+<p>自从引入Java 11的升级要求以来，我们收到有些用户反馈认为Java 8不再支持，其实这是不正确的。在此博客中，我们将为您做解释，并提供平滑快速而又不影响您项目的升级步骤。</p>
+<h3 id="关于升级"><a href="#关于升级" class="headerlink" title="关于升级"></a>关于升级</h3><p>首先，Java 11升级是为了运行VS Code for Java，更具体地说，它是运行Language Server for Java扩展的要求。但这不意味您的项目也需要升级到Java 11。也就是说您可以继续使用1.5或更高版本开发项目。您项目使用的JDK和运行VS Code for Java的JDK是分别通过java.configuration.runtimes和java.home来进行配置的。我们的<a href="https://link.zhihu.com/?target=https://code.visualstudio.com/docs/java/java-project%23_configure-jdk">Configure JDK</a>文档提供了更多详细信息。</p>
+<h3 id="如何升级"><a href="#如何升级" class="headerlink" title="如何升级"></a>如何升级</h3><p>为了平滑快速地升级到Java 11以运行VS Code for Java，我们建议您遵循以下步骤：</p>
+<p>1.下载并安装Java 11 JDK（如果尚未安装）。</p>
+<p>2.打开VS Code，然后打开File&gt;Preferences&gt;Settings菜单。设置视图将在您的编辑器窗口中启动。</p>
+<p>3.在设置视图中，搜索配置项“ java.home”，将其值设置为JDK 11安装路径的根目录，然后保存。</p>
+<p><img src="https://pic2.zhimg.com/v2-2f9a430bbafed84e7ebb0475e40cd551_r.jpg"><img src="https://pic4.zhimg.com/v2-08774f073f9af21f617e499ec0ddfd13_r.jpg"></p>
+<p>4.在设置视图中，搜索配置项“java.configuration.runtimes”，为您的项目指定JDK，然后保存。这是确定项目JDK的配置。有关如何配置的详细信息，请参阅<a href="https://link.zhihu.com/?target=https://code.visualstudio.com/docs/java/java-project%23_jdk-for-projects">JDK for Projects</a>文档。</p>
+<p><img src="https://pic3.zhimg.com/v2-be459a6dbde519c902c53e1647fb678a_r.jpg"></p>
+<p>5.重新启动VS Code，现在您一切就绪。</p>
+<p>希望我们在此博客中提供的信息可以帮助您平稳快速地升级到Java 11以运行VS Code for Java，同时您可以继续为项目使用其他版本的JDK。如果您有任何疑问或反馈，请告诉我们。</p>
+<h3 id="更多信息"><a href="#更多信息" class="headerlink" title="更多信息"></a>更多信息</h3><p>请不要犹豫，尝试一下！您的反馈和建议对我们非常重要，将有助于将来塑造我们的产品。</p>
+<ul>
+<li>  了解有关<a href="https://link.zhihu.com/?target=https://code.visualstudio.com/docs/languages/java">Visual Studio Code上Java的</a>更多信息。</li>
+<li>  逐步探索<a href="https://link.zhihu.com/?target=https://code.visualstudio.com/docs/java/java-tutorial">有关Visual Studio Code的Java教程</a>。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xunayuweihe.github.io/blog/2021/09/16/vscode%E4%BD%BF%E7%94%A8java8/" data-id="cktmjspra0000u8v67sr7g0md" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-文案网站" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/blog/2021/09/15/%E6%96%87%E6%A1%88%E7%BD%91%E7%AB%99/" class="article-date">
@@ -563,6 +616,10 @@
           </li>
         
           <li>
+            <a href="/blog/2021/09/16/vscode%E4%BD%BF%E7%94%A8java8/">vscode使用java8</a>
+          </li>
+        
+          <li>
             <a href="/blog/2021/09/15/%E6%96%87%E6%A1%88%E7%BD%91%E7%AB%99/">文案网站</a>
           </li>
         
@@ -572,10 +629,6 @@
         
           <li>
             <a href="/blog/2021/09/14/python%20%E9%80%92%E5%BD%92%E8%A7%A3%E5%86%B3%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">python 递归解决 背包问题</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2021/09/14/hello-world/">你好</a>
           </li>
         
       </ul>
