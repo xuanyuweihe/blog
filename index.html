@@ -91,522 +91,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xunayuweihe.github.io/blog/2221/01/01/%E6%9C%AC%E7%AB%99%E5%B7%A5%E5%85%B7/" data-id="ckto9it550004z4v6erqx5jpz" class="article-share-link">Share</a>
+      <a data-url="https://xunayuweihe.github.io/blog/2221/01/01/%E6%9C%AC%E7%AB%99%E5%B7%A5%E5%85%B7/" data-id="ckto9m1oa00042cv6aak0cflq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E6%9C%AC%E7%AB%99%E5%B7%A5%E5%85%B7/" rel="tag">本站工具</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hexo解决多端同步问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/blog/2021/09/17/hexo%E8%A7%A3%E5%86%B3%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/" class="article-date">
-  <time datetime="2021-09-17T03:19:50.000Z" itemprop="datePublished">2021-09-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2021/09/17/hexo%E8%A7%A3%E5%86%B3%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/">hexo解决多端同步问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Hexo博客多端同步问题"><a href="#Hexo博客多端同步问题" class="headerlink" title="Hexo博客多端同步问题"></a>Hexo博客多端同步问题</h1><p>文章标签： <a target="_blank" rel="noopener" href="https://www.csdn.net/tags/MtzaYgwsMzEzMy1ibG9n.html">git</a></p>
-<p>原文链接：<a target="_blank" rel="noopener" href="https://juejin.im/post/5af8f087f265da0b886d857a">https://juejin.im/post/5af8f087f265da0b886d857a</a></p>
-<p>](<a target="_blank" rel="noopener" href="https://product.z-onesoft.com/developerc/appcreativitycompetition.html">https://product.z-onesoft.com/developerc/appcreativitycompetition.html</a>)</p>
-<h1 id="Hexo博客多端同步问题-1"><a href="#Hexo博客多端同步问题-1" class="headerlink" title="Hexo博客多端同步问题"></a>Hexo博客多端同步问题</h1><p>搭完博客，发现只有公司电脑上有源文件，如果回家就没发继续更新博客了。也不能拿着U盘到处拷贝。所以就把博客源文件放到github上解决同步问题。</p>
-<h2 id="博客源文件同步"><a href="#博客源文件同步" class="headerlink" title="博客源文件同步"></a>博客源文件同步</h2><p>在博客根目录执行</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:lanpangzhi/lanpangzhi.github.io.git  </span><br><span class="line">  <span class="comment"># 添加远程仓库 注意这里要添加你自己的仓库 lanpangzhi 换成你自己的用户名</span></span><br><span class="line">git checkout -b hexo   		 </span><br><span class="line">  <span class="comment"># 新建hexo分支并切换到hexo分支</span></span><br><span class="line">git add . 			 </span><br><span class="line">  <span class="comment"># 所有变化提交到暂存区</span></span><br><span class="line">git commit -m <span class="string">&quot;解决同步问题&quot;</span>  </span><br><span class="line">  <span class="comment"># 提交文件</span></span><br><span class="line">git push origin hexo   </span><br><span class="line">  <span class="comment"># 推送hexo分支</span></span><br></pre></td></tr></table></figure>
-<p>复制代码<br>这就成功了，github上已经有博客的源文件了。</p>
-<p>推荐把hexo设置为默认分支。</p>
-<h2 id="git-submodule-实现第三方主题同步"><a href="#git-submodule-实现第三方主题同步" class="headerlink" title="git submodule 实现第三方主题同步"></a>git submodule 实现第三方主题同步</h2><p>因为之前是直接把第三方主题克隆到博客目录，有什么改动是无法推送到作者Git仓库的，这个时候需要把第三方主题的项目Fork到自己仓库，自己账号下生成一个同名的仓库，并对应一个url，我们应该git clone自己账号下仓库的url。</p>
-<p>执行如下操作。</p>
-<pre><code>    git submodule add git@github.com:lanpangzhi/hexo-theme-next.git themes/next 复制代码
-</code></pre>
-<p>把自己仓库下面第三方主题添加到Git子模块， <strong>注 : themes/next 这里的目录是因为我用的next主题才会写themes/next 如果你用的不是next请把next替换成你的第三方主题文件夹名字。</strong></p>
-<p>博客的根目录会多一个.gitmodules文件,这是一个配置文件，保存了项目 URL 和你拉取到的本地子目录。</p>
-<p>这就添加成功了，然后执行如下操作。</p>
-<pre><code>  git add .              # 所有变化提交到暂存区  git commit -m &quot;添加第三方主题Git子模块&quot;  # 提交文件  git push origin hexo   # 推送hexo分支复制代码
-</code></pre>
-<h2 id="更换电脑同步博客和第三方主题"><a href="#更换电脑同步博客和第三方主题" class="headerlink" title="更换电脑同步博客和第三方主题"></a>更换电脑同步博客和第三方主题</h2><h3 id="同步博客"><a href="#同步博客" class="headerlink" title="同步博客"></a>同步博客</h3><p>电脑上一定要先node和git，执行如下操作。</p>
-<pre><code>    npm install hexo-cli -g  # 先安装hexo的脚手架    git clone git@github.com:lanpangzhi/lanpangzhi.github.io.git  # 下载项目，因为hexo 是默认分支，所以这里直接会下载hexo分支    npm i # 安装依赖    hexo s # 启动服务器复制代码
-</code></pre>
-<p>剩下的就自行操作了。博客已经完成了同步。</p>
-<p>注：每次写完文章部署网站后，记得再执行如下操作。</p>
-<pre><code>  git add .             # 所有变化提交到暂存区  git commit -m &quot;新增xxx文章&quot;      # 提交文件  git push origin hexo           # 推送hexo分支复制代码
-</code></pre>
-<h3 id="同步第三方主题"><a href="#同步第三方主题" class="headerlink" title="同步第三方主题"></a>同步第三方主题</h3><p>在博客根目录执行如下操作。</p>
-<pre><code>  git submodule init    # 初始化本地配置文件  git submodule update    # 拉取子模块复制代码
-</code></pre>
-<p>如果第三方主题有修改的，修改完成后在第三方主题目录执行。</p>
-<pre><code>  git add .             # 所有变化提交到暂存区  git commit -m &quot;修改主题xxxx&quot;      # 提交文件  git push origin master       # 推送master分支复制代码
-</code></pre>
-<p>这样就会把修改的主题推送到自己的仓库。</p>
-<p>这样就实现多端同步了。</p>
-<h1 id="我的博客和github地址"><a href="#我的博客和github地址" class="headerlink" title="我的博客和github地址"></a>我的博客和github地址</h1><p><a href="https://link.juejin.im/?target=http://blog.langpz.com">blog.langpz.com</a></p>
-<p><a href="https://link.juejin.im/?target=https://github.com/lanpangzhi">github.com/lanpangzhi</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://link.juejin.im/?target=http://devtian.me/2015/03/17/blog-sync-solution">devtian.me/2015/03/17/…</a> <a href="https://link.juejin.im/?target=https://git-scm.com/book/zh/v1/Git-%25E5%25B7%25A5%25E5%2585%25B7-%25E5%25AD%2590%25E6%25A8%25A1%25E5%259D%2597">git-scm.com/book/zh/v1/…</a></p>
-<p>相关资源：<a target="_blank" rel="noopener" href="https://download.csdn.net/download/weixin_42122986/18516358?spm=1001.2101.3001.5697">BlogGo:一个用于_同步_有道云笔记到_Hexo__博客_的工具-源码</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635"><img src="https://profile.csdnimg.cn/A/3/C/3_weixin_34417635">weixin_34417635</a></p>
-<p><a href="#">关注</a> 关注</p>
-<ul>
-<li><pre><code> ![](https://csdnimg.cn/release/blogv2/dist/pc/img/tobarThumbUpactive.png) ![](https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart1Active.png) ![](https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart1White.png) 0
-</code></pre>
-</li>
-</ul>
-<pre><code>点赞
-</code></pre>
-<ul>
-<li>   <a href="#commentBox"><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCommentWhite.png"> 0</a></li>
-</ul>
-<pre><code>评论
-</code></pre>
-<ul>
-<li><pre><code> [![](https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollectionActive.png) ![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCollectWhite.png) ![](https://csdnimg.cn/release/blogv2/dist/pc/img/newCollectActive.png) 2](javascript:;)
-</code></pre>
-</li>
-</ul>
-<pre><code>收藏
-</code></pre>
-<ul>
-<li><p><a href="javascript:;"><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/newHealthCompanies1Active.gif"></a></p>
-<p>  一键三连</p>
-</li>
-<li><p><a href="javascript:;"><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/newShareWhite.png"></a></p>
-<p>  扫一扫，分享海报</p>
-<p>  <img src="/weixin_34417635/article/details/data:image/png;base64,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"></p>
-</li>
-</ul>
-<p>[</p>
-<p>利用_Git_Hub实现_Hexo__博客_的_多端__同步_</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/ch206265/article/details/103239545">https://blog.csdn.net/ch206265/article/details/103239545</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ch206265">ch206265的博客</a></p>
-<p>11-25 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 242</p>
-<p>[</p>
-<p>首先需要知道_Hexo_在本地和在_Git_Hub上的文件是两个不同的东西。本地的主要是部署文件包括了自己写的所有文章的MarkDown文件，主题文件等等；上传到_Git_Hub中的文件是部署文件渲染过后的文件，我们最终访问_Git_HubName._git_hub.io看到的个人站点其实就是这些保存在_Git_Hub中渲染过的东西。想要实现_多端__同步_，关键点是让多台电脑上都有最新的部署文件，也就是那个本地文件，因此我们可以利用_git_实现这一需求</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/ch206265/article/details/103239545">https://blog.csdn.net/ch206265/article/details/103239545</a>)</p>
-<p>[</p>
-<p><em>Hexo</em>+<em>Git</em>+_Git_hub_博客_在多台终端_同步_管理</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/steven_zdg988/article/details/111240905">https://blog.csdn.net/steven_zdg988/article/details/111240905</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/steven_zdg988">Hacker的博客</a></p>
-<p>12-15 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 247</p>
-<p>[</p>
-<p><em>Hexo</em>+<em>Git</em>+_Git_hub_博客_在多台终端_同步_管理 最近这两天研究_Hexo_制作个人_博客_，发现自己放了好长时间的_博客_系统在一次环境系统升级过后崩溃了，然后决定从零开始。在配置过程中又遇到了这样的问题，在不同的电脑终端_同步__博客_遇到了困难，不能实现要求，然后查找了很多博文和官网的文档，最终找到了解决的办法，在此记录下来以便能帮助有需要的后来人。此方法利用_Git_管理_Hexo_产生的文件，实现在不同的电脑上_同步_（_Git_hub）所需的文件，也可以正常的在不同的_Hexo_环境里进行相应操作，只要在做完之后_同步_到_Git_hub</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/steven_zdg988/article/details/111240905">https://blog.csdn.net/steven_zdg988/article/details/111240905</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41581307"><img src="https://profile.csdnimg.cn/E/B/9/3_qq_41581307"></a></p>
-<p><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/commentFlag@2x.png"></p>
-<p><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/emoticon.png"></p>
-<p>插入表情</p>
-<p><a href="#"></a></p>
-<p>添加代码片</p>
-<ul>
-<li>  HTML/XML</li>
-<li>  objective-c</li>
-<li>  Ruby</li>
-<li>  PHP</li>
-<li>  C</li>
-<li>  C++</li>
-<li>  JavaScript</li>
-<li>  Python</li>
-<li>  Java</li>
-<li>  CSS</li>
-<li>  SQL</li>
-<li>  其它</li>
-</ul>
-<p>还能输入_1000_个字符 </p>
-<p>[</p>
-<p>_Hexo__博客_多台电脑设备_同步_管理_RunningKing</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/ShmilyCoder/article/details/79916973">https://blog.csdn.net/ShmilyCoder/article/details/79916973</a>)</p>
-<p>8-19</p>
-<p>[</p>
-<p>原文_博客_地址:<em>Hexo__博客_多台电脑设备_同步_管理 最近一直在折腾_Hexo__博客</em>, 玩的可谓是不亦乐乎啊; 这里就整理一下之前遗留的一些问题和一些个性化配置 如有遇到搭建个人_博客_时遇到的问题, 这里可参考我的之前的两篇相关_博客_ …</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/ShmilyCoder/article/details/79916973">https://blog.csdn.net/ShmilyCoder/article/details/79916973</a>)</p>
-<p>[</p>
-<p>_Hexo_搭建_博客_以及_多端__同步_更新</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/a565102223/article/details/61926629">https://blog.csdn.net/a565102223/article/details/61926629</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a565102223">Kevin的专栏</a></p>
-<p>03-13 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 3414</p>
-<p>[</p>
-<p><em>Hexo_搭建_博客_以及_多端__同步_更新​ 这几天弄了下_Hexo_的_博客_搭建，并搞定了_多端__同步_管理了。现在将搭建遇到的一些坑以及过程分享出来，自己也再理顺一遍。本文是基于码市 的私有仓库（_git_hub一样的原理）的，博主只是在_多端_管理的时候不想把所有的文章都_同步_到公共仓库去，另外还有就是_Git_Hub的访问速度（毕竟是国外的）。好了，废话不多说，下面就介绍下_Hexo_是如何更换主题、添加_博客_评论、以及_多端__同步</em></p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/a565102223/article/details/61926629">https://blog.csdn.net/a565102223/article/details/61926629</a>)</p>
-<p>[</p>
-<p>两个_hexo__博客_的_多端__同步_管理与推送问题</p>
-<p>最新发布</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/godread_cn/article/details/118383963">https://blog.csdn.net/godread_cn/article/details/118383963</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/godread_cn">godread的博客</a></p>
-<p>07-01 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 17</p>
-<p>[</p>
-<p>在一个电脑上管理两个或多个_hexo__博客_，在推送和_多端__同步_时会再现一些问题，比如凭证覆盖、远程下载上传等 建立不同的 <em>hexo</em> _博客_需要不同的 _git_hub 账号，创建过程较为简单，比较伤脑筋的首先是_多端__同步_问题。 一、_hexo__博客_的_多端__同步_问题 在使用 <em>hexo</em> _博客_时，通常不会总是在同一台电脑上发文章，可能会在不同的地方有发文章的需求，拷贝既不快又不方便，因此需要源文件_同步_。 <em>博客_源文件_同步</em> 写完文章部署到网站 <em>hexo</em> clean <em>hexo</em> g <em>hexo</em> s // 本地查看效果，可略过.</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/godread_cn/article/details/118383963">https://blog.csdn.net/godread_cn/article/details/118383963</a>)</p>
-<p>[</p>
-<p>如何解决_git_hub+_Hexo_的_博客_多终端_同步_问题</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/Monkey_LZL/article/details/60870891">https://blog.csdn.net/Monkey_LZL/article/details/60870891</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Monkey_LZL">monkey_lzl的博客</a></p>
-<p>03-08 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 8729</p>
-<p>[</p>
-<p>解决如何进行_git_hub+_Hexo_的搭建的_博客_之多终端_同步_问题</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/Monkey_LZL/article/details/60870891">https://blog.csdn.net/Monkey_LZL/article/details/60870891</a>)</p>
-<p>[</p>
-<p>快速搭建多终端_同步_的 <em>git_hub + <em>hexo</em> 静态_博客</em></p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/csdn_lisword/article/details/73804982">https://blog.csdn.net/csdn_lisword/article/details/73804982</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/csdn_lisword">KAKADEE BLOG</a></p>
-<p>06-27 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 1810</p>
-<p>[</p>
-<p>快速搭建多终端_同步_的 _git_hub + <em>hexo</em> 静态_博客_最近心血来潮想搭建自己的个人_博客_，在考察了多种_博客_的搭建方法后，毅然选择了 _Git_Hub + <em>hexo</em> 的静态_博客_搭建方法（主要原因是对我来说比较简单）。本人工作机是在Mac,所以主要搭建环境与配置是在OSX系统下进行，与Linux应该区别不大，windows环境下的配置可能有出入，敬请谅解。最终实现的效果是在_Git_Hub上只需要一个仓库，实</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/csdn_lisword/article/details/73804982">https://blog.csdn.net/csdn_lisword/article/details/73804982</a>)</p>
-<p>[</p>
-<p><em>hexo__博客</em> 多终端_同步_使用</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34291777/article/details/98723401">https://blog.csdn.net/qq_34291777/article/details/98723401</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34291777">Malik的博客</a></p>
-<p>08-07 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 378</p>
-<p>[</p>
-<p>一、 多终端_同步_使用 远程分支：maser、_hexo_存放不同文件内容。 <em>hexo_分支：存放本地文件，包括建站所需的配置文件、资源文件夹、主题文件夹、模板文件夹等，具体如下：【注】这里没有public文件夹，其实本地执行_hexo</em> d -g等发布命令会将由md文件渲染的静态文件放入public中。 . ├── _config.yml 网站的 配置 信息，您可以在此配置大部分的参数 ├── pac…</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34291777/article/details/98723401">https://blog.csdn.net/qq_34291777/article/details/98723401</a>)</p>
-<p>[</p>
-<p>_Hexo__博客_在多台终端_同步_管理</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/Yongzili/article/details/98535710">https://blog.csdn.net/Yongzili/article/details/98535710</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Yongzili">Yongzili的专栏</a></p>
-<p>08-05 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 297</p>
-<p>    <a target="_blank" rel="noopener" href="https://blog.csdn.net/Yongzili/article/details/98535710">近期使用_Hexo_搭建了自己的_博客_，但发现一个问题，就是如何使多台电脑保持_博客__同步_，因为可能都会遇到换新电脑，或者在公司电脑上编写更新_博客_的情况；这两天参考了一些思路，实现了多台终端_同步__博客_的功能，顺便也记录一下实现方案。     首先看这篇文章的前提是你已经搭建了_Hexo__博客_的环境，并且目前需要多台电脑都可编辑_同步__博客_，那么先来看下实现的整体的思路。 整体思路 方案主要是通过维护两条gi…</a></p>
-<p>[</p>
-<p><em>hexo__博客_多终端_同步</em></p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38254969/article/details/108323699">https://blog.csdn.net/weixin_38254969/article/details/108323699</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38254969">weixin_38254969的博客</a></p>
-<p>08-31 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 83</p>
-<p>[</p>
-<p>一、首先要先建立好基本的单终端_博客_系统 1.这个是win10+<em>hexo</em>+_git_hub的搭建方法 ​ 参考链接 ​ 基本操作比较简单，本文也不再赘述。 ​ 如果出现难以解决的问题：比如_博客_本地根目录下的_config.yml文件找不到了的时候，就可以直接把_博客_根目录删除，从头操作 **坑1：**注意想用自定义theme最好不要从_git_hub上直接克隆下来，而是以压缩包形式下载到对应theme文件夹后再解压。这对之后的多终端_同步_有好处 2.另一个（或者之后的其他）终端需要提前配一下环境 ​ 参考链接</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38254969/article/details/108323699">https://blog.csdn.net/weixin_38254969/article/details/108323699</a>)</p>
-<p>[</p>
-<p>_Hexo__博客_多台电脑设备_同步_管理</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33895016/article/details/87958860">https://blog.csdn.net/weixin_33895016/article/details/87958860</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33895016">weixin_33895016的博客</a></p>
-<p>04-12 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 192</p>
-<p>[</p>
-<p>原文_博客_地址: <em>Hexo__博客_多台电脑设备_同步_管理 最近一直在折腾_Hexo__博客</em>, 玩的可谓是不亦乐乎啊; 这里就整理一下之前遗留的一些问题和一些个性化配置 如有遇到搭建个人_博客_时遇到的问题, 这里可参考我的之前的两篇相关_博客_ 基于_Git_Hub和_Hexo_搭建个人_博客_ NexT主题配置优化-出土指南 一. 个性化配置 1. 返回顶部按钮显示滚动进度 打开主题配置文件 ~themes/nex…</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33895016/article/details/87958860">https://blog.csdn.net/weixin_33895016/article/details/87958860</a>)</p>
-<p>[</p>
-<p>将_Hexo__博客__同步_部署到阿里云服务器</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44975887/article/details/117267259">https://blog.csdn.net/weixin_44975887/article/details/117267259</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44975887">the步履不停shy的博客</a></p>
-<p>05-25 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 19</p>
-<p>[</p>
-<p>title: 将_Hexo__博客__同步_部署到阿里云服务器 date: 2021-05-25 23:16:52 tags: 工作记录 将_Hexo__博客__同步_部署到阿里云服务器 文章目录title: 将_Hexo__博客__同步_部署到阿里云服务器 date: 2021-05-25 23:16:52 tags: 工作记录将_Hexo__博客__同步_部署到阿里云服务器服务器端设置安装_git_与nginx创建_git_仓库并使用hooks实现自动部署修改nginx默认打开界面阿里云服务器更改配置本地设置参考链接 前两天闲来无事，买了个阿里云服务器玩玩.</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44975887/article/details/117267259">https://blog.csdn.net/weixin_44975887/article/details/117267259</a>)</p>
-<p>[</p>
-<p>_Hexo_实现多终端_同步_管理</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/dxxzst/article/details/76135750">https://blog.csdn.net/dxxzst/article/details/76135750</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dxxzst"></a></p>
-<p>07-26 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 3307</p>
-<p>[</p>
-<p>很多人可能家里一台笔记本，公司一个台式机，想两个同时管理_博客_，同时达到备份的_博客_主题、文章、配置的目的。 下面就介绍一下用_git_hub来备份_博客_并_同步__博客_。A电脑备份_博客_内容到_git_hub 列表项配置._git_ignore文件。进入_博客_目录文件夹下，找到此文件，用sublime text打开，在最后增加两行内容/.deploy_<em>git_和/public 列表项初始化仓库。在_博客_根目录下，在_git</em> ba</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/dxxzst/article/details/76135750">https://blog.csdn.net/dxxzst/article/details/76135750</a>)</p>
-<p>[</p>
-<p>_博客_多终端_同步_问题</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/w745986487/article/details/87559249">https://blog.csdn.net/w745986487/article/details/87559249</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/w745986487">w745986487的博客</a></p>
-<p>02-17 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 397</p>
-<p>[</p>
-<p>前言 很多人家里一台笔记本，公司有一台式机，想两个同时管理_博客_，同时达到备份_博客_主题、文章、配置的目的。下面就介绍一下用_git_hub来备份_博客_并_同步__博客_。 1.准备工作 安装了Node.js,<em>Git</em>,_Hexo_环境 完成_Git_hub与本地_Hexo_的对接 大家可以参考史上最详细的_Hexo__博客_搭建图文教程 2.A终端push本地_博客_文件到_git_hub分支 配置._git_ignore文件 进入_博客_目录…</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/w745986487/article/details/87559249">https://blog.csdn.net/w745986487/article/details/87559249</a>)</p>
-<p>[</p>
-<p>在 <em>hexo</em> 中使用 <em>git</em> submodules 管理主题</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34242658/article/details/91372512">https://blog.csdn.net/weixin_34242658/article/details/91372512</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34242658">weixin_34242658的博客</a></p>
-<p>01-03 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 360</p>
-<p>[</p>
-<p><em>hexo</em> 中有着丰富的主题可以选择, 大部分的使用示例或者教程都是将主题 clone 到 theme 文件夹中来使用. 但这样来使用主题会存在如下的问题: theme 中的主题属于一个独立的 <em>Git</em> 项目, 有自己的 .<em>git</em> 项目文件夹, 提交 <em>hexo</em> 项目时默认不会提交 theme 的 .<em>git</em> 文件夹, 在其他电脑上 clone 后会失去 theme 原本的版本控制功能. 使用自己修改的…</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34242658/article/details/91372512">https://blog.csdn.net/weixin_34242658/article/details/91372512</a>)</p>
-<p>[</p>
-<p>_hexo_多终端_同步_和管理</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/nineya_com/article/details/103535192">https://blog.csdn.net/nineya_com/article/details/103535192</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/nineya_com">玖涯博客</a></p>
-<p>12-14 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 329</p>
-<p>[</p>
-<p>写在前面 _hexo_生成_博客_提交的是渲染之后的html文件，并不是源码，本文主要描述如何实现_hexo_多终端源码_同步_，使用到的工具是“_git_”，文章可能还有很多不足，请大家谅解，欢迎大佬提意见。 本文使用的东西 win10电脑 _hexo_4.1.1 _git_2.24.0 1.方法介绍 多终端管理的原理：把_博客_源码提交到_Git_Hub存储库，使用_git_进行不同终端的本地库_同步_。 有两种不同的方法： 创建…</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/nineya_com/article/details/103535192">https://blog.csdn.net/nineya_com/article/details/103535192</a>)</p>
-<p>[</p>
-<p><em>Hexo</em> 实现多终端_同步_，及问题排查</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/chuorun1701/article/details/100767722">https://blog.csdn.net/chuorun1701/article/details/100767722</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chuorun1701">chuorun1701的博客</a></p>
-<p>04-26 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 83</p>
-<p>[</p>
-<p>(广而告之：欢迎访问我的 个人网站 ) 在原本的A电脑上， 首先，原电脑上搭建_hexo__博客_并进行页面优化，可参考 进阶之_Hexo_的landscape主题的README文件 其次，也很重要：在_Git_hub远程创建 <em>hexo</em> branch，并将新的_hexo_ branch 设置成 Default b…</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/chuorun1701/article/details/100767722">https://blog.csdn.net/chuorun1701/article/details/100767722</a>)</p>
-<p>[</p>
-<p>从零开始在服务器搭建_Hexo__博客_</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/u010011236/article/details/85109474">https://blog.csdn.net/u010011236/article/details/85109474</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010011236">Andy·Wu的专栏</a></p>
-<p>12-19 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 798</p>
-<p>[</p>
-<p>原文链接：<a target="_blank" rel="noopener" href="http://106.12.200.86/post/5454b416.html#more">http://106.12.200.86/post/5454b416.html#more</a> 一、开发环境 ubuntu16.04 node.js <em>git_hub Windows10 64bits 二、在本地Windows上搭建_Hexo</em> 2.1、安装node.js 直接从官网下载node.js安装文件进行安装即可。 2.2、安装_Git_Hub 直接从官网下载_Git_Hub安装文件进行安装即可。…</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/u010011236/article/details/85109474">https://blog.csdn.net/u010011236/article/details/85109474</a>)</p>
-<p>[</p>
-<p>文件_同步_之冲突文件的产生及解决妙计</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/iteye_3759/article/details/82524260">https://blog.csdn.net/iteye_3759/article/details/82524260</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/iteye_3759">互联网</a></p>
-<p>08-07 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 759</p>
-<p>[</p>
-<p>什么叫_同步_文件冲突呢？简单的说，就是同一个文件_同步_双方内容不同，但是程序完全不知道该怎么进行_同步_，我们就说，这个文件产生了冲突。 文件_同步_的过程中，不可避免的会产生文件冲突。为什么？不是全部交给你搞定吗？怎么说呢？严格讲，这个还真不属于技术问题。技术高速发展，极大提升了生产力，使得大家有更多的时间躺在沙滩边晒太阳，享受美好生活，当然，也有人因此而变得更焦虑，因人而异。看起来技术无所不能，但是，有…</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/iteye_3759/article/details/82524260">https://blog.csdn.net/iteye_3759/article/details/82524260</a>)</p>
-<p>[</p>
-<p>_hexo_史上最全搭建教程</p>
-<p>热门推荐</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_37781304/article/details/82729029">https://blog.csdn.net/sinat_37781304/article/details/82729029</a>)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_37781304">Fangzh的技术博客</a></p>
-<p>09-16 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 16万+</p>
-<p>[</p>
-<p>花了几天搭建了个网站，先上链接，欢迎来访：fangzh的个人_博客_ 现在市面上的_博客_很多，如CSDN，_博客_园，简书等平台，可以直接在上面发表，用户交互做的好，写的文章百度也能搜索的到。缺点是比较不自由，会受到平台的各种限制和恶心的广告。 而自己购买域名和服务器，搭建_博客_的成本实在是太高了，不光是说这些购买成本，单单是花力气去自己搭这么一个网站，还要定期的维护它，对于我们大多数人来说，实在是没…</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_37781304/article/details/82729029">https://blog.csdn.net/sinat_37781304/article/details/82729029</a>)</p>
-<p>©️2020 CSDN 皮肤主题: 大白 设计师:CSDN官方博客 <a target="_blank" rel="noopener" href="https://blog.csdn.net/">返回首页</a></p>
-<ul>
-<li><p>  <a target="_blank" rel="noopener" href="https://www.csdn.net/company/index.html#about">关于我们</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="https://www.csdn.net/company/index.html#recruit">招贤纳士</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="https://www.csdn.net/company/index.html#advertisement">广告服务</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="https://plugin.csdn.net/">开发助手</a></p>
-</li>
-<li><p>  <img src="https://g.csdnimg.cn/common/csdn-footer/images/tel.png"> 400-660-0108</p>
-</li>
-<li><p>  <img src="https://g.csdnimg.cn/common/csdn-footer/images/email.png"> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/mailto:webmaster@csdn.net">kefu@csdn.net</a></p>
-</li>
-<li><p>  <img src="https://g.csdnimg.cn/common/csdn-footer/images/cs.png"> <a target="_blank" rel="noopener" href="https://csdn.s2.udesk.cn/im_client/?web_plugin_id=29181">在线客服</a></p>
-</li>
-<li><p>  工作时间 8:30-22:00</p>
-</li>
-<li><p>  <img src="https://g.csdnimg.cn/common/csdn-footer/images/badge.png"><a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502030143">公安备案号11010502030143</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/publish/query/indexFirst.action">京ICP备19004658号</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="https://csdnimg.cn/release/live_fe/culture_license.png">京网文〔2020〕1039-165号</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="https://csdnimg.cn/cdn/content-toolbar/csdn-ICP.png">经营性网站备案信息</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="http://www.bjjubao.org/">北京互联网违法和不良信息举报中心</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="http://www.cyberpolice.cn/">网络110报警服务</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="http://www.12377.cn/">中国互联网举报中心</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="https://download.csdn.net/index.php/tutelage/">家长监护</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/csdn%E5%BC%80%E5%8F%91%E8%80%85%E5%8A%A9%E6%89%8B/kfkdboecolemdjodhmhmcibjocfopejo?hl=zh-CN">Chrome商店下载</a></p>
-</li>
-<li><p>  ©1999-2021北京创新乐知网络技术有限公司</p>
-</li>
-<li><p>  [版权与免责声明](<a target="_blank" rel="noopener" href="https://www.csdn.net/company/index.html">https://www.csdn.net/company/index.html</a> target=)</p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/blogdevteam/article/details/90369522">版权申诉</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="https://img-home.csdnimg.cn/images/20210414021151.jpg">出版物许可证</a></p>
-</li>
-<li><p>  <a target="_blank" rel="noopener" href="https://img-home.csdnimg.cn/images/20210414021142.jpg">营业执照</a></p>
-</li>
-</ul>
-<p>window.csdn.csdnFooter.options = { el: ‘.blog-footer-bottom’, type: 2 }</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635"><img src="https://profile.csdnimg.cn/A/3/C/3_weixin_34417635"></a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635" title="weixin_34417635">weixin_34417635</a> CSDN认证博客专家 CSDN认证企业博客</p>
-<p>码龄5年  <a target="_blank" rel="noopener" href="https://i.csdn.net/#/uc/profile?utm_source=14998968" title="暂无认证"><img src="https://csdnimg.cn/identity/nocErtification.png"> 暂无认证</a></p>
-<p>[</p>
-<p>165</p>
-<p>原创</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635">https://blog.csdn.net/weixin_34417635</a>)</p>
-<p>[</p>
-<p>-</p>
-<p>周排名</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/rank/list/weekly">https://blog.csdn.net/rank/list/weekly</a>)</p>
-<p>[</p>
-<p>71万+</p>
-<p>总排名</p>
-<p>](<a target="_blank" rel="noopener" href="https://blog.csdn.net/rank/list/total">https://blog.csdn.net/rank/list/total</a>)</p>
-<p>81万+</p>
-<p>访问</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/blogdevteam/article/details/103478461"><img src="https://csdnimg.cn/identity/blog6.png"></a></p>
-<p>等级</p>
-<p>4820</p>
-<p>积分</p>
-<p>2969</p>
-<p>粉丝</p>
-<p>162</p>
-<p>获赞</p>
-<p>17</p>
-<p>评论</p>
-<p>746</p>
-<p>收藏</p>
-<p><img src="https://csdnimg.cn/medal/1024@240.png"></p>
-<p><img src="https://csdnimg.cn/medal/chaoji1024@240.png"></p>
-<p><a target="_blank" rel="noopener" href="https://im.csdn.net/chat/weixin_34417635">私信</a></p>
-<p>关注</p>
-<p> <img src="https://csdnimg.cn/cdn/content-toolbar/csdn-sou.png?v=1587021042"></p>
-<h3 id="热门文章"><a href="#热门文章" class="headerlink" title="热门文章"></a>热门文章</h3><ul>
-<li>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/85985861">Chrome接口请求一直是pending状态，但接口实际上是正常的 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 32598</a></li>
-<li>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/94612405">Weibull分布(韦伯分布、威布尔分布) <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 13626</a></li>
-<li>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/92253476">强化学习用于路径规划，以Q-learning解决TSP问题为例 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 7434</a></li>
-<li>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/91520645">动态规划应用举例—资源分配问题 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 6951</a></li>
-<li>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/91674353">window运行.jar <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png"> 6275</a></li>
-</ul>
-<h3 id="最新评论"><a href="#最新评论" class="headerlink" title="最新评论"></a>最新评论</h3><ul>
-<li>[微信小程序的生命周期](<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/88986254">https://blog.csdn.net/weixin_34417635/article/details/88986254</a> data-report-click=)  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41692437">牧童牵黄牛:</a> 分析讲解的挺通透,对我这个小白来说,很有启迪性,点个赞!!!</li>
-</ul>
-<h3 id="您愿意向朋友推荐“博客详情页”吗？"><a href="#您愿意向朋友推荐“博客详情页”吗？" class="headerlink" title="您愿意向朋友推荐“博客详情页”吗？"></a>您愿意向朋友推荐“博客详情页”吗？</h3><ul>
-<li><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel1.png"> <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey1.png">  强烈不推荐</li>
-<li><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel2.png"> <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey2.png">  不推荐</li>
-<li><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel3.png"> <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey3.png">  一般般</li>
-<li><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel4.png"> <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey4.png">  推荐</li>
-<li><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel5.png"> <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey5.png">  强烈推荐</li>
-</ul>
-<p> 提交</p>
-<h3 id="最新文章"><a href="#最新文章" class="headerlink" title="最新文章"></a>最新文章</h3><ul>
-<li>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/94676433">C#3.0语法糖学习笔记</a></li>
-<li>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/94672407">SSRS 参数 单选 多选</a></li>
-<li>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/94608554">Create flat file with AE</a></li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2019/07">2019年380篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2018/12">2018年678篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2017/12">2017年911篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2016/12">2016年524篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2015/12">2015年424篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2014/12">2014年317篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2013/12">2013年307篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2012/12">2012年287篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2011/12">2011年198篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2010/12">2010年174篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2009/12">2009年121篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2008/12">2008年109篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2007/12">2007年75篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2006/12">2006年32篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2005/12">2005年17篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2004/12">2004年8篇</a></p>
-<p>(adsbygoogle = window.adsbygoogle || []).push({});</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ol>
-<li> <a href="#">Hexo博客多端同步问题</a></li>
-<li><ol>
-<li> <a href="#">博客源文件同步</a></li>
-<li> <a href="#">git submodule 实现第三方主题同步</a></li>
-<li> <a href="#">更换电脑同步博客和第三方主题</a></li>
-<li><ol>
-<li> <a href="#">同步博客</a></li>
-<li> <a href="#">同步第三方主题</a></li>
-</ol>
-</li>
-</ol>
-</li>
-<li> <a href="#">我的博客和github地址</a></li>
-<li><ol>
-<li> <a href="#">参考</a></li>
-</ol>
-</li>
-</ol>
-<p>$(“a.flexible-btn”).click(function(){ $(this).parents(‘div.aside-box’).removeClass(‘flexible-box’); $(this).parents(“p.text-center”).remove(); })</p>
-<h3 id="目录-1"><a href="#目录-1" class="headerlink" title="目录"></a>目录</h3><ol>
-<li> <a href="#">Hexo博客多端同步问题</a></li>
-<li><ol>
-<li> <a href="#">博客源文件同步</a></li>
-<li> <a href="#">git submodule 实现第三方主题同步</a></li>
-<li> <a href="#">更换电脑同步博客和第三方主题</a></li>
-<li><ol>
-<li> <a href="#">同步博客</a></li>
-<li> <a href="#">同步第三方主题</a></li>
-</ol>
-</li>
-</ol>
-</li>
-<li> <a href="#">我的博客和github地址</a></li>
-<li><ol>
-<li> <a href="#">参考</a></li>
-</ol>
-</li>
-</ol>
-<p>(adsbygoogle = window.adsbygoogle || []).push({});</p>
-<h3 id="最新文章-1"><a href="#最新文章-1" class="headerlink" title="最新文章"></a>最新文章</h3><ul>
-<li>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/94676433">C#3.0语法糖学习笔记</a></li>
-<li>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/94672407">SSRS 参数 单选 多选</a></li>
-<li>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/details/94608554">Create flat file with AE</a></li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2019/07">2019年380篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2018/12">2018年678篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2017/12">2017年911篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2016/12">2016年524篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2015/12">2015年424篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2014/12">2014年317篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2013/12">2013年307篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2012/12">2012年287篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2011/12">2011年198篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2010/12">2010年174篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2009/12">2009年121篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2008/12">2008年109篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2007/12">2007年75篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2006/12">2006年32篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2005/12">2005年17篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34417635/article/month/2004/12">2004年8篇</a></p>
-<p>var articleId = 88022441; var commentscount = 0; var curentUrl = “<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin/_34417635/article/details/88022441&quot;">https://blog.csdn.net/weixin\_34417635/article/details/88022441&quot;</a>; var myUrl = “<a target="_blank" rel="noopener" href="https://my.csdn.net/&quot;">https://my.csdn.net/&quot;</a>; var highlight = [“博客”,”git”,”同步”,”hexo”,”多端”];//高亮数组 var isRecommendModule = true; var isBaiduPre = true; var baiduCount = 2; var share_card_url = “<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin/_34417635/article/shareArticleCardPage?article%5C_id=88022441&quot;">https://blog.csdn.net/weixin\_34417635/article/shareArticleCardPage?article\_id=88022441&quot;</a> var articleType = 2; var baiduKey = “Hexo博客多端同步问题”; var userNewReport = false; var needInsertBaidu = true; var recommendRegularDomainArr = [“blog.csdn.net/.+/article/details/“,”download.csdn.net/download/“,”edu.csdn.net/course/detail/“,”ask.csdn.net/questions/“,”bbs.csdn.net/topics/“,”<a target="_blank" rel="noopener" href="http://www.csdn.net/gather/_.+/&quot;/]">www.csdn.net/gather\_.+/&quot;\]</a> var codeStyle = “”; var baiduSearchType = “title”; var canRead = true; var blogMoveHomeArticle = true; var showPcWindowAd = false; var showSearchText = “”; var linkPage = true; var articleSource = 4; var articleReport = ‘{“pid”: “blog”, “spm”:”1001.2101”}’; var isShowToQuestion = false; var baiduSearchChannel = ‘pc_relevant’ var baiduSearchIdentification = ‘.searchformbaiduhighlight’ var initRewardObject = { giver: currentUserName, anchor: username, articleId: articleId, sign: ‘’ }</p>
-<p>实付元</p>
-<p><a href="#">使用余额支付</a></p>
-<p><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/pay-time-out.png"> 点击重新获取</p>
-<p><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/weixin.png"><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/zhifubao.png"><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/jingdong.png">扫码支付</p>
-<p> 钱包余额 0</p>
-<p><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/pay-help.png"></p>
-<p>抵扣说明：</p>
-<p>1.余额是钱包充值的虚拟货币，按照1:1的比例进行支付金额的抵扣。<br>2.余额无法直接购买下载，可以购买VIP、C币套餐、付费专栏及课程。</p>
-<p>[<img src="https://csdnimg.cn/release/blogv2/dist/pc/img/recharge.png">余额充值](<a target="_blank" rel="noopener" href="https://i.csdn.net/">https://i.csdn.net/</a> target=)</p>
-<p>  // 全局声明 if (window.csdn === undefined) { window.csdn = {}; } window.csdn.sideToolbar = { options: { report:{ isShow: true, }, qr: { isShow: false, }, guide: { isShow: true } } } $(function(){ $(document).on(‘click’,”a.option-box[data-type=’report’]“,function() { window.csdn.userLogin.loadAjax(function(res){ if(userNewReport){ showReportNew(false,articleTitles); }else{ showReport(false,articleTitles); } }) }); }) $(“.MathJax”).remove(); if ($(‘div.markdown_views pre.prettyprint code.hljs’).length &gt; 0) { $(‘div.markdown_views’)[0].className = ‘markdown_views’; } MathJax.Hub.Config({ “HTML-CSS”: { linebreaks: { automatic: true, width: “94%container” }, imageFont: null }, tex2jax: { preview: “none”, ignoreClass:”title-article” }, mml2jax: { preview: ‘none’ } });</p>
-<p>举报</p>
-<p><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/closeBlack.png"></p>
-<p>选择你想要举报的内容（必选）</p>
-<ul>
-<li>  内容涉黄</li>
-<li>  政治相关</li>
-<li>  内容抄袭</li>
-<li>  涉嫌广告</li>
-<li>  内容侵权</li>
-<li>  侮辱谩骂</li>
-<li>  样式问题</li>
-<li>  其他</li>
-</ul>
-<p>原文链接（必填）</p>
-<p>请选择具体原因（必选）</p>
-<ul>
-<li>  包含不实信息</li>
-<li>  涉及个人隐私</li>
-</ul>
-<p>请选择具体原因（必选）</p>
-<ul>
-<li>  侮辱谩骂</li>
-<li>  诽谤</li>
-</ul>
-<p>请选择具体原因（必选）</p>
-<ul>
-<li>  搬家样式</li>
-<li>  博文样式</li>
-</ul>
-<p>补充说明（选填）</p>
-<p>取消</p>
-<p>确定</p>
-<p><img src="https://img-home.csdnimg.cn/images/20210812043922.png"> <img src="https://img-home.csdnimg.cn/images/20210914025010.png"></p>
-<p><img src="https://img-home.csdnimg.cn/images/20210914025020.png"></p>
-<p> <img src="https://g.csdnimg.cn/side-toolbar/3.0/images/guide.png"> 新手<br>引导<img src="https://g.csdnimg.cn/side-toolbar/3.0/images/kefu.png"> 客服 举报 <img src="https://g.csdnimg.cn/side-toolbar/3.0/images/fanhuidingbucopy.png"> 返回<br>顶部</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://xunayuweihe.github.io/blog/2021/09/17/hexo%E8%A7%A3%E5%86%B3%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/" data-id="ckto9it67000bz4v67x3neizz" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -657,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xunayuweihe.github.io/blog/2021/09/16/vscode%E4%BD%BF%E7%94%A8java8/" data-id="ckto9it530002z4v6fcimfwpn" class="article-share-link">Share</a>
+      <a data-url="https://xunayuweihe.github.io/blog/2021/09/16/vscode%E4%BD%BF%E7%94%A8java8/" data-id="ckto9m1o800022cv6g828bb1x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -822,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xunayuweihe.github.io/blog/2021/09/15/%E6%96%87%E6%A1%88%E7%BD%91%E7%AB%99/" data-id="ckto9it540003z4v603a4cvmd" class="article-share-link">Share</a>
+      <a data-url="https://xunayuweihe.github.io/blog/2021/09/15/%E6%96%87%E6%A1%88%E7%BD%91%E7%AB%99/" data-id="ckto9m1o900032cv65tswg0jj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a></li></ul>
@@ -974,7 +463,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xunayuweihe.github.io/blog/2021/09/15/chaoxi/" data-id="ckto9it630009z4v6d4zkgr7v" class="article-share-link">Share</a>
+      <a data-url="https://xunayuweihe.github.io/blog/2021/09/15/chaoxi/" data-id="ckto9m1of00092cv6533xgtl6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a></li></ul>
@@ -1019,7 +508,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xunayuweihe.github.io/blog/2021/09/14/python%20%E9%80%92%E5%BD%92%E8%A7%A3%E5%86%B3%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" data-id="ckto9it510001z4v69ipx3s6y" class="article-share-link">Share</a>
+      <a data-url="https://xunayuweihe.github.io/blog/2021/09/14/python%20%E9%80%92%E5%BD%92%E8%A7%A3%E5%86%B3%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" data-id="ckto9m1o600012cv65lvkdrq5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1068,7 +557,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://xunayuweihe.github.io/blog/2021/09/14/hello-world/" data-id="ckto9it4v0000z4v6hyq6exhq" class="article-share-link">Share</a>
+      <a data-url="https://xunayuweihe.github.io/blog/2021/09/14/hello-world/" data-id="ckto9m1o100002cv65nnk8q40" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1127,10 +616,6 @@
           </li>
         
           <li>
-            <a href="/blog/2021/09/17/hexo%E8%A7%A3%E5%86%B3%E5%A4%9A%E7%AB%AF%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/">hexo解决多端同步问题</a>
-          </li>
-        
-          <li>
             <a href="/blog/2021/09/16/vscode%E4%BD%BF%E7%94%A8java8/">vscode使用java8</a>
           </li>
         
@@ -1140,6 +625,10 @@
         
           <li>
             <a href="/blog/2021/09/15/chaoxi/">图床网站</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2021/09/14/python%20%E9%80%92%E5%BD%92%E8%A7%A3%E5%86%B3%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">python 递归解决 背包问题</a>
           </li>
         
       </ul>
