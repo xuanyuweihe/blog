@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ckplayer</title>
+	<link type="text/css" rel="stylesheet" href="ckplayer/css/ckplayer.css" />
+	<link type="text/css" rel="stylesheet" href="../bootstrap-4.4.1-dist/css/bootstrap.min.css" />
+	<script type="text/javascript" src="ckplayer/js/ckplayer.min.js" charset="UTF-8"></script>
+	<script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	<script src="../bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: cyan;">
+	<div class='alert alert-primary'>
+		<img src='favicon.ico' />
+		<h3 style="float: right;">m3u8在线播放
+	</div>
+	</div>
+	<div class="video" style="width: 100%; height: 500px;max-width: 800px;">播放容器</div>
+	<div class="input-group mb-3">
+		<input type="text" id="textM3u8" class="form-control" placeholder="M3u8addr" aria-label="M3u8addr"
+			aria-describedby="basic-addon2" value='https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'>
+		<div class="input-group-append">
+			<button id="playM3u8" class="btn" type="button">
+				<img src='play.png'>
+			</button>
+		</div>
+	</div>
+	<div id="buttons" style="width: 100%; height: 50px;"></div>
+	<script>
+		//调用开始
+		var videoObject = {
+			container: '.video', //视频容器                                   
+			poster: 'video/poster.png',//封面图片  
+			plug: 'ckplayer/hls.js/hls.js',
+			// video: 'https://volc-stream.kksmg.com/live/dfws.m3u8?volcSecret=88075e9a7b90207a7ea3a03d6c47acd4&volcTime=1664901977'//视频地址
+			video: 'video/lc.mp4'//视频地址 
+		};
+		var player = new ckplayer(videoObject)//调用播放器并赋值给变量player
+		//获取直播源链接地址 
+		var zhibosrc = []
+		var dealM3u8 = function (m3u8) {
+			videoObject.video = $('#textM3u8')[0].innerText;
+			console.log($('#textM3u8')[0].value,videoObject)
+			player = new ckplayer(videoObject)
+		}
+		$('#playM3u8')[0].onclick=dealM3u8;
+		var dealData = function (data) {
+			zhibosrc = data
+			console.log(data);
+			for (let tp of zhibosrc) {
+				let pObj = document.createElement("button")
+				pObj.innerText = tp[0]
+				pObj.onclick = function () {
+					videoObject.video = tp[1];
+					player = new ckplayer(videoObject)
+				}
+				$("#buttons")[0].append(pObj)
+			}
+		}
+		$.ajax({
+			url: "/blog/others/sp/video/index.json",
+			type: "GET",
+			dataType: "json",
+			success:
+				function (data) {
+					dealData(data)
+				}
+		});
+		/*
+		 * ===============================================================================================
+		 * 以上代码已完成调用演示，下方的代码是演示监听动作和外部控制的部分
+		 * ===============================================================================================
+		 */
+		// player.play(function () {
+		// 	document.getElementById('state').innerHTML = '监听到播放';
+		// });
+		// player.pause(function () {
+		// 	document.getElementById('state').innerHTML = '监听到暂停';
+		// });
+		// player.volume(function (vol) {
+		// 	document.getElementById('state').innerHTML = '监听到音量改变：' + vol;
+		// });
+		// player.muted(function (b) {
+		// 	document.getElementById('state2').innerHTML = '监听到静音状态：' + b;
+		// });
+		// player.full(function (b) {
+		// 	document.getElementById('state').innerHTML = '监听到全屏状态：' + b;
+		// });
+		// player.ended(function () {
+		// 	document.getElementById('state').innerHTML = '监听到播放结束';
+		// });
+		// function fch() {
+		// 	videoObject.video = "video/lc.mp4";
+		// 	player = new ckplayer(videoObject)
+		// }
+		// function ftest() {
+		// 	alert(1)
+		// }
+	</script>
+	<!-- <p>官网：<a href="https://www.ckplayer.com" target="_blank">www.ckplayer.com</a></p>
+	<p>手册：<a href="https://www.ckplayer.com/manual/" target="_blank">www.ckplayer.com/manual/</a></p>
+	<p>社区：<a href="https://bbs.ckplayer.com/" target="_blank">bbs.ckplayer.com</a></p>
+	<p>全功能演示：<a href="https://www.ckplayer.com/demo.html" target="_blank">www.ckplayer.com/demo.html</a></p>
+	<p>控制示例：</p>
+	<p>
+		<button type="button" onclick="player.play()">播放</button>
+		<button type="button" onclick="player.pause()">暂停</button>
+		<button type="button" onclick="player.seek(20)">跳转</button>
+		<button type="button" onclick="player.volume(0.6)">修改音量</button>
+		<button type="button" onclick="player.muted()">静音</button>
+		<button type="button" onclick="player.exitMuted()">恢复音量</button>
+		<button type="button" onclick="player.full()">全屏</button>
+		<button type="button" onclick="player.webFull()">页面全屏</button>
+		<button type="button" onclick="player.theatre()">剧场模式</button>
+		<button type="button" onclick="player.exitTheatre()">退出剧场模式</button>
+		<button type="button" onclick="fch()">修改视频源</button>
+		<button type="button" onclick="ftest()">测试</button>
+	</p>
+	<p id="state"></p>
+	<p id="state2"></p> -->
+</body>
+
+</html>

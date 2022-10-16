@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>python 递归解决 背包问题 | ❤ 等 夜 ❤</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="决策过程如下 每次考虑一个背包是否放下，从第一个到最后一个 比较放这个和后面的，不放这个和后面的效益哪个高  决策树代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051class Jilu(float):    # 实现float型与list合并在一起，所有fl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 递归解决 背包问题">
+<meta property="og:url" content="https://xunayuweihe.github.io/blog/2022/10/16/python%20%E9%80%92%E5%BD%92%E8%A7%A3%E5%86%B3%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="❤ 等 夜 ❤">
+<meta property="og:description" content="决策过程如下 每次考虑一个背包是否放下，从第一个到最后一个 比较放这个和后面的，不放这个和后面的效益哪个高  决策树代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051class Jilu(float):    # 实现float型与list合并在一起，所有fl">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-10-16T15:39:47.009Z">
+<meta property="article:modified_time" content="2022-10-16T15:39:47.009Z">
+<meta property="article:author" content="XYWH">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog/atom.xml" title="❤ 等 夜 ❤" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">❤ 等 夜 ❤</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://xunayuweihe.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-python 递归解决 背包问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2022/10/16/python%20%E9%80%92%E5%BD%92%E8%A7%A3%E5%86%B3%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2022-10-16T15:39:47.009Z" itemprop="datePublished">2022-10-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python 递归解决 背包问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="决策过程如下"><a href="#决策过程如下" class="headerlink" title="决策过程如下"></a>决策过程如下</h2><ol>
+<li>每次考虑一个背包是否放下，从第一个到最后一个</li>
+<li>比较放这个和后面的，不放这个和后面的效益哪个高</li>
+</ol>
+<h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Jilu</span>(<span class="title class_ inherited__">float</span>):</span><br><span class="line">    <span class="comment"># 实现float型与list合并在一起，所有float方法都可用</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__new__</span>(<span class="params">cls,value,jilu</span>):</span><br><span class="line">        o=<span class="built_in">super</span>(Jilu,cls).__new__(cls,value)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">type</span>(jilu) <span class="keyword">is</span> <span class="keyword">not</span> <span class="built_in">list</span>:</span><br><span class="line">            o.jilu=[jilu]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            o.jilu=jilu</span><br><span class="line">        <span class="keyword">return</span> o</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__add__</span>(<span class="params">self,jl</span>):</span><br><span class="line">        a=self.__float__()+jl</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">type</span>(self)==<span class="built_in">type</span>(jl):</span><br><span class="line">            tp=self.jilu=self.jilu+jl.jilu</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tp=self.jilu</span><br><span class="line">        <span class="keyword">return</span> self.__new__(Jilu,a,self.jilu)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        t1=self.__float__()</span><br><span class="line">        t2=self.jilu</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;value:&#123;0&#125;,jilu:&#123;1&#125;&quot;</span>.<span class="built_in">format</span>(t1,t2)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">jc</span>():</span><br><span class="line">    <span class="comment"># 决策</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,bb:<span class="built_in">list</span></span>):</span><br><span class="line">        <span class="comment"># self.bb=sorted(bb,key=lambda x:x.weight,reverse=1)</span></span><br><span class="line">        self.bb=bb</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dg</span>(<span class="params">self,n=<span class="number">0</span>,wt=<span class="number">0</span></span>):</span><br><span class="line">        <span class="comment"># 当前考虑的 剩余质量</span></span><br><span class="line">        <span class="comment"># 放入或者不放入</span></span><br><span class="line">        <span class="comment"># 假设只剩下背包，看能不能放下</span></span><br><span class="line">        <span class="comment"># 决策过程</span></span><br><span class="line">        <span class="comment"># 比较放这个和后面的，不放这个和后面的效益哪个高</span></span><br><span class="line">        <span class="keyword">if</span> n&gt;=self.bb.__len__():</span><br><span class="line">            <span class="keyword">return</span> Jilu(<span class="number">0</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="comment"># 返回的要为value</span></span><br><span class="line">        <span class="keyword">if</span> wt&lt;self.bb[n][<span class="number">0</span>]:<span class="comment">#放不下</span></span><br><span class="line">            t1=-<span class="number">1</span></span><br><span class="line">            t2=self.dg(n+<span class="number">1</span>,wt)<span class="comment">#不放这个</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">if</span> wt&gt;=self.bb[n][<span class="number">0</span>]:<span class="comment">#能放下</span></span><br><span class="line">            t1=Jilu(self.bb[n][<span class="number">1</span>],<span class="built_in">str</span>(n))+self.dg(n+<span class="number">1</span>,wt-self.bb[n][<span class="number">0</span>])<span class="comment">#放下这个</span></span><br><span class="line">            t2=self.dg(n+<span class="number">1</span>,wt)<span class="comment">#不放这个</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(t1,t2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bb=[(<span class="number">2</span>,<span class="number">2</span>),(<span class="number">2.5</span>,<span class="number">3</span>),(<span class="number">4</span>,<span class="number">5</span>),(<span class="number">5</span>,<span class="number">8</span>),(<span class="number">1</span>,<span class="number">2</span>),(<span class="number">3</span>,<span class="number">4</span>),(<span class="number">3</span>,<span class="number">4</span>)]</span><br><span class="line"><span class="comment">#背包的记录 第一个数是质量，第二个是价值</span></span><br><span class="line">a=jc(bb)</span><br><span class="line"><span class="built_in">print</span>(a.dg(wt=<span class="number">10</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://xunayuweihe.github.io/blog/2022/10/16/python%20%E9%80%92%E5%BD%92%E8%A7%A3%E5%86%B3%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" data-id="cl9bj3stf0002vgwifhuug65u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2022/10/16/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          你好
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2022/10/03/zhiboyuan/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">zhiboyuan</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%AC%E7%AB%99%E5%B7%A5%E5%85%B7/" rel="tag">本站工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%9B%B4%E6%92%AD%E6%BA%90/" rel="tag">直播源</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/%E6%9C%AC%E7%AB%99%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">本站工具</a> <a href="/blog/tags/%E7%9B%B4%E6%92%AD%E6%BA%90/" style="font-size: 10px;">直播源</a> <a href="/blog/tags/%E7%BD%91%E7%AB%99/" style="font-size: 20px;">网站</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2221/01/">January 2221</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2021/09/">September 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2221/01/01/%E6%9C%AC%E7%AB%99%E5%B7%A5%E5%85%B7/">本站工具</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/16/hello-world/">你好</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/16/python%20%E9%80%92%E5%BD%92%E8%A7%A3%E5%86%B3%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/">python 递归解决 背包问题</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/10/03/zhiboyuan/">zhiboyuan</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2022/09/21/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/">新的开始 记录一些b站纪录片</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 XYWH<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+
+  
+<script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/blog/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

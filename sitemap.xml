@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://xunayuweihe.github.io/blog/2022/10/16/hello-world/</loc>
+    
+    <lastmod>2022-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xunayuweihe.github.io/blog/2021/09/15/chaoxi/</loc>
+    
+    <lastmod>2022-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xunayuweihe.github.io/blog/2022/10/16/python%20%E9%80%92%E5%BD%92%E8%A7%A3%E5%86%B3%20%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2022-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xunayuweihe.github.io/blog/2021/09/16/vscode%E4%BD%BF%E7%94%A8java8/</loc>
+    
+    <lastmod>2022-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xunayuweihe.github.io/blog/2022/10/03/zhiboyuan/</loc>
+    
+    <lastmod>2022-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xunayuweihe.github.io/blog/2021/09/15/%E6%96%87%E6%A1%88%E7%BD%91%E7%AB%99/</loc>
+    
+    <lastmod>2022-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xunayuweihe.github.io/blog/2022/09/21/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</loc>
+    
+    <lastmod>2022-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xunayuweihe.github.io/blog/2221/01/01/%E6%9C%AC%E7%AB%99%E5%B7%A5%E5%85%B7/</loc>
+    
+    <lastmod>2022-10-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>https://xunayuweihe.github.io/blog</loc>
+    <lastmod>2022-10-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://xunayuweihe.github.io/blog/tags/%E7%BD%91%E7%AB%99/</loc>
+    <lastmod>2022-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xunayuweihe.github.io/blog/tags/%E7%9B%B4%E6%92%AD%E6%BA%90/</loc>
+    <lastmod>2022-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xunayuweihe.github.io/blog/tags/%E6%9C%AC%E7%AB%99%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2022-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+</urlset>
